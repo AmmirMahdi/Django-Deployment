@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome To My Blog</title>
+  </head>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">  <body>
+
+
+
+
+    <h1> Hello World </h1>
+
+    {{ author }}
+
+
+    <h1> {{ name|cut:'ali' }} </h1>
+    <h1>{{number|add:"10"}}</h1>
+
+    <p> This is my first blog </p>
+
+
+    <h1><a href="{% url 'first_app:other' %}"> LINK TO OTHER  </a></h1>
+<div class="djangotwo">
+      <table  class="table table-dark">
+    <thead>
+
+
+
+      {% if access_record %}
+      <tr>
+        <th scope="col">Site Name</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+
+    {% for acc in access_record %}
+    <tbody>
+      <tr>
+        <td>{{ acc.name }}</td>
+        <td>{{ acc.date }}</td>
+      </tr>
+    </tbody>
+  {% endfor %}
+  </table>
+{% else %}
+</div>
+<p> Access Dosent exist </p>
+{% endif %}
+
+
+  </body>
+</html>
